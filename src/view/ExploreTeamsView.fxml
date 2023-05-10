@@ -43,7 +43,7 @@
                         onAction="#openTeamMenu"
                 />
                 <Button fx:id="viewPlayersButton" mnemonicParsing="false" prefHeight="50.0"
-                        prefWidth="100.0" text="Arrange new season"
+                        prefWidth="100.0" text="View Players"
                         GridPane.columnIndex="2" GridPane.rowIndex="0"
                         onAction="#viewPlayers"
                 />

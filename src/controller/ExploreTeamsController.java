@@ -11,7 +11,6 @@ import javafx.stage.*;
 import javafx.scene.image.Image;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import model.Association;
 import model.Teams;
 
 public class ExploreTeamsController extends Controller<Teams> {
@@ -27,12 +26,30 @@ public class ExploreTeamsController extends Controller<Teams> {
     @FXML
     private GridPane buttonGrid;
 
-    //add button function from ExploreTeamsView.fxml here
+    public Teams getTeams(){
+        return this.model;
+    }
     public void openTeamMenu() {
-
+        try {
+            Stage stage = new Stage();
+            stage.setX(ViewLoader.X + 601);
+            stage.setY(ViewLoader.Y);
+            stage.getIcons().add(new Image("/view/nba.png"));
+            ViewLoader.showStage(getTeams(), "/view/TeamsTable.fxml", "Teams Menu", stage);
+        } catch (IOException ex) {
+            Logger.getLogger(AssociationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     public void viewPlayers() {
-
+        try {
+            Stage stage = new Stage();
+            stage.setX(ViewLoader.X + 601);
+            stage.setY(ViewLoader.Y);
+            stage.getIcons().add(new Image("/view/nba.png"));
+            ViewLoader.showStage(getTeams(), "/view/PlayersView.fxml", "Players", stage);
+        } catch (IOException ex) {
+            Logger.getLogger(AssociationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     public void close() {
         //close the window

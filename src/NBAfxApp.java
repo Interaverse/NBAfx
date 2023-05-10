@@ -12,6 +12,7 @@ public class NBAfxApp extends Application {
         // Load the FXML file
         primaryStage.setX(ViewLoader.X);
         primaryStage.setY(ViewLoader.Y);
+        primaryStage.getIcons().add(new Image("/view/nba.png"));
         ViewLoader.showStage(new Association(), "/view/AssociationView.fxml", "NBAfx View", primaryStage);
     }
 

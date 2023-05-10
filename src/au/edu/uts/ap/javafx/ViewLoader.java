@@ -31,6 +31,28 @@ public class ViewLoader {
         stage.setOnCloseRequest(e -> onStageClosed.run());
         stage.show();
     }
+    public static <T, C extends Controller<T>> C showStageWithController(T model, String fxml, String title, Stage stage, Runnable onStageClosed) throws IOException {
+        FXMLLoader loader = new FXMLLoader(Controller.class.getResource(fxml), null, null,
+                type -> {
+                    try {
+                        @SuppressWarnings("unchecked")
+                        C controller = (C) type.newInstance();
+                        controller.model = model;
+                        controller.stage = stage;
+                        return controller;
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+        Parent root = loader.load();
+        stage.setTitle(title);
+        stage.setScene(new Scene(root));
+        stage.sizeToScene();
+        stage.setOnCloseRequest(e -> onStageClosed.run());
+        stage.show();
+
+        return loader.getController();
+    }
 
     public static <T> void showStage(T model, String fxml, String title, Stage stage) throws IOException {
         showStage(model, fxml, title, stage, () -> {

@@ -11,10 +11,10 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox  alignment="CENTER" styleClass="background" prefHeight="450.0" prefWidth="350.0" spacing="20" xmlns:fx="http://javafx.com/fxml/1"
+<VBox  alignment="CENTER" styleClass="background" prefHeight="550.0" prefWidth="150.0" spacing="20" xmlns:fx="http://javafx.com/fxml/1"
         fx:controller="controller.SeasonController"
        >
-    <ImageView fitHeight="200.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="false">
+    <ImageView fitHeight="200.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="false">
         <image>
             <Image url="@../view/NBA_Back.jpg"/>
         </image>

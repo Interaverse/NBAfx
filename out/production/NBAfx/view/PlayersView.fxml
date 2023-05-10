@@ -14,9 +14,42 @@
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>  
 
-<VBox  xmlns:fx="http://javafx.com/fxml/1" styleClass="background" alignment="CENTER" >
-    
-
+<VBox  xmlns:fx="http://javafx.com/fxml/1" styleClass="background" alignment="TOP_CENTER" prefHeight="800.0" prefWidth="900.0"
+       spacing="0.0" fx:controller="controller.ViewPlayersController">
+    <padding>
+        <Insets top="0.0" right="0.0" bottom="0.0" left="0.0" />
+    </padding>
+    <Label text="All Players" styleClass="label-header"/>
+    <TableView fx:id="playersTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="teamNameColumn" text="Team"/>
+            <TableColumn fx:id="playerNameColumn" text="Player Name"/>
+            <TableColumn fx:id="playerCreditColumn"  text="Player credit" />
+            <TableColumn fx:id="playerAgeColumn"  text="Player Age" />
+            <TableColumn fx:id="playerNumberColumn"  text="Player No" />
+            <TableColumn fx:id="playerLevelColumn"  text="Player Level" />
+        </columns>
+        <placeholder>
+            <Label text="Players list is not loaded."/>
+        </placeholder>
+    </TableView>
+    <VBox alignment="CENTER">
+        <Label text="Filter" styleClass="label-header"/>
+        <HBox alignment="CENTER">
+            <Label text="Filter By Level:" styleClass="label"/>
+            <TextField fx:id="filterByLevelTextField" />
+            <Label text="Filter By Name:" styleClass="label"/>
+            <TextField fx:id="filterByNameTextField" />
+        </HBox>
+        <Label text="Filter By Age:" styleClass="label"/>
+        <HBox alignment="CENTER">
+            <Label text="From:" styleClass="label"/>
+            <TextField fx:id="fromTextField" />
+            <Label text="To:" styleClass="label"/>
+            <TextField fx:id="toTextField" />
+        </HBox>
+        <Button text="Close" onAction="#close" prefHeight="50.0" prefWidth="100.0"/>
+    </VBox>
     <stylesheets>
         <URL value="@style.css"/>
     </stylesheets>

@@ -11,12 +11,18 @@
 <?import javafx.geometry.*?>
 
 <VBox  alignment="CENTER" styleClass="background" prefHeight="400.0" prefWidth="600.0" spacing="20" 
-       xmlns:fx="http://javafx.com/fxml/1" >
+       xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="controller.AddTeamController"
+        >
     <padding>
         <Insets top="10" bottom="10" left="5" right="5" />
     </padding>
-   
-   
+   <GridPane alignment="CENTER">
+       <Label text="Team Details" styleClass="label-header" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+       <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+       <TextField fx:id="teamNameField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+   </GridPane>
+    <Button fx:id="addTeamButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Add" onAction="#addTeam"/>
     <stylesheets>
         <URL value="@style.css"/>
     </stylesheets>

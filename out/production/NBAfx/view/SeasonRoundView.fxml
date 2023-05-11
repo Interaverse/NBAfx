@@ -27,7 +27,7 @@
                 </FXCollections>
             </items>
         </ListView>
-        <Button text=">>>" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#transfer"/>
+        <Button text=">>>" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#transfer" fx:id="transferButton"/>
         <TableView fx:id="gameTable" GridPane.rowIndex="0" GridPane.columnIndex="2" prefWidth="300">
             <columns>
                 <TableColumn fx:id="gameColumn" text="Game" prefWidth="100"/>
@@ -36,7 +36,7 @@
             </columns>
         </TableView>
     </GridPane>
-    <Button text="Arrange Season" onAction="#arrangeSeason"/>
+    <Button text="Arrange Season" onAction="#arrangeSeason" disable="true" fx:id="arrangeSeasonButton"/>
     <stylesheets>
         <URL value="@style.css"/>
     </stylesheets>

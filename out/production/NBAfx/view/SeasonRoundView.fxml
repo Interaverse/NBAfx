@@ -18,7 +18,7 @@
 <VBox styleClass="background" alignment="CENTER" prefHeight="400" prefWidth="800" spacing="20" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="controller.TeamsRoundController"
     >
-    <Label text="Round: 1" styleClass="label-header"/>
+    <Label text="${controller.round}" styleClass="label-header"/>
     <GridPane alignment="CENTER">
         <ListView fx:id="roundList" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="list-view">
             <items>

@@ -45,7 +45,15 @@ public class SeasonController  extends Controller<Season>{
 
     @FXML
     public void displayRound() {
-
+        try {
+            Stage stage = new Stage();
+            stage.setX(ViewLoader.X + 601);
+            stage.setY(ViewLoader.Y);
+            stage.getIcons().add(new Image("/view/nba.png"));
+            ViewLoader.showStage(getSeason(), "/view/CurrentRoundTeams.fxml", "Tournament", stage);
+        } catch (IOException ex) {
+            Logger.getLogger(AssociationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
@@ -60,7 +68,7 @@ public class SeasonController  extends Controller<Season>{
 
     @FXML
     public void close() {
-
+        stage.close();
     }
     private Season getSeason(){
         return this.model;

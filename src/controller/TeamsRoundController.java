@@ -54,6 +54,7 @@ public class TeamsRoundController  extends Controller<Season>{
         for (ObservableList<Team> observableList : teamsInGame) {
             getSeason().addTeams(observableList);
         }
+        stage.close();
     }
     @FXML public void initialize(){
         items = roundList.getItems();
@@ -70,6 +71,7 @@ public class TeamsRoundController  extends Controller<Season>{
 
         items.addListener((ListChangeListener<String>) change -> {
             if (items.isEmpty()) {
+                roundList.setPlaceholder(new Label("All teams added to round."));
                 arrangeSeasonButton.setDisable(false);
                 transferButton.setDisable(true);
             } else {
@@ -103,6 +105,7 @@ public class TeamsRoundController  extends Controller<Season>{
             return secondTeam.get();
         }
     }
+    public String getRound() { return "Round: "+ (getSeason().round() + 1); }
 
 }
 

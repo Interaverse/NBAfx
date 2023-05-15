@@ -64,10 +64,14 @@ public class PlayerUpdateController extends Controller<Players> {
         }
     }
     @FXML public void updatePlayer(){
-        getPlayers().getPlayer(playerName).setName(playerNameTextField.getText());
-        getPlayers().getPlayer(playerName).setAge(Integer.parseInt(playerAgeTextField.getText()));
-        getPlayers().getPlayer(playerName).setCredit(Double.parseDouble(playerCreditTextField.getText()));
-        getPlayers().getPlayer(playerName).setNo(Integer.parseInt(playerNumberTextField.getText()));
+        try {
+            getPlayers().getPlayer(playerName).setName(playerNameTextField.getText());
+            getPlayers().getPlayer(playerName).setAge(Integer.parseInt(playerAgeTextField.getText()));
+            getPlayers().getPlayer(playerName).setCredit(Double.parseDouble(playerCreditTextField.getText()));
+            getPlayers().getPlayer(playerName).setNo(Integer.parseInt(playerNumberTextField.getText()));
+        } catch (Exception e) {
+            stage.close();
+        }
         stage.close();
     }
     @FXML public void close(){

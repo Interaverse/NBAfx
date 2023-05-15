@@ -29,6 +29,9 @@
         </ListView>
         <Button text=">>>" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#transfer" fx:id="transferButton"/>
         <TableView fx:id="gameTable" GridPane.rowIndex="0" GridPane.columnIndex="2" prefWidth="300">
+            <placeholder>
+                <Label text="No teams added to round"/>
+            </placeholder>
             <columns>
                 <TableColumn fx:id="gameColumn" text="Game" prefWidth="100"/>
                 <TableColumn fx:id="firstTeamColumn" text="Team-1" prefWidth="100"/>

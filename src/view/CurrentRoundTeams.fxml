@@ -12,19 +12,21 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.*?>
-<?import javafx.geometry.Insets?>  
+<?import javafx.geometry.Insets?>
 
 <VBox styleClass="background"  alignment="CENTER" prefHeight="300" prefWidth="400" spacing="20" xmlns:fx="http://javafx.com/fxml/1"
-        fx:controller="controller.CurrentRoundTeamsController"
+        fx:controller="controller.CurrentRoundTeamsController" fx:id="mainVBox"
     >
    <Label styleClass="label-header" text="${controller.round}" />
-    <TableView fx:id="scheduleTable" styleClass="table-view" >
-        <columns>
-            <TableColumn fx:id="teamOneColumn" text="Team..."/>
-            <TableColumn fx:id="versusColumn" text="versus"/>
-            <TableColumn fx:id="teamTwoColumn" text="Team..." />
-        </columns>
-    </TableView>
+    <HBox alignment="CENTER">
+        <TableView fx:id="scheduleTable" styleClass="table-view" prefWidth="${controller.tableWidth}" >
+            <columns>
+                <TableColumn fx:id="teamOneColumn" text="Team..."/>
+                <TableColumn fx:id="versusColumn" text=""/>
+                <TableColumn fx:id="teamTwoColumn" text="Team..." />
+            </columns>
+        </TableView>
+    </HBox>
     <Button text="Close" onAction="#close" fx:id="closeButton"/>
     <stylesheets>
         <URL value="@style.css"/>

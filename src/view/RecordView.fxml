@@ -14,8 +14,17 @@
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>  
 
-<VBox styleClass="background"  alignment="CENTER" prefHeight="300" prefWidth="500" spacing="20" xmlns:fx="http://javafx.com/fxml/1" >
-   
+<VBox styleClass="background"  alignment="CENTER" prefHeight="300" prefWidth="500" spacing="20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RecordController">
+    <Label styleClass="label-header" text="Season Record" />
+        <TableView fx:id="recordTable" styleClass="table-view" >
+            <columns>
+                <TableColumn fx:id="roundColumn" text="Round" />
+                <TableColumn fx:id="gameColumn" text="Game" />
+                <TableColumn fx:id="winningTeamColumn" text="Winning Team" />
+                <TableColumn fx:id="losingTeamColumn" text="Losing Team" />
+            </columns>
+        </TableView>
+    <Button text="Close" onAction="#close" fx:id="closeButton"/>
     <stylesheets>
         <URL value="@style.css"/>
     </stylesheets>

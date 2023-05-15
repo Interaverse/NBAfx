@@ -28,7 +28,8 @@ public class ErrorController extends Controller<Validator>{
         int count = 0;
         for (String error : getException().errors()) {
             Label messageLabel = new Label(error);
-            messageLabel.getStyleClass().add("label-error");
+            messageLabel.getStyleClass().add("text-out");
+            messageLabel.setStyle("-fx-text-fill: yellow;");
             GridPane.setConstraints(messageLabel, 0, count);
             errorMessageLabel.getChildren().add(messageLabel);
             count++;

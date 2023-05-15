@@ -12,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import model.Season;
+import controller.Validator;
 
 public class SeasonController  extends Controller<Season>{
     //add private fields from SeasonView.fxml here named on fx:id
@@ -58,12 +59,30 @@ public class SeasonController  extends Controller<Season>{
 
     @FXML
     public void playGame() {
-
+        try {
+            Validator validator = new Validator();
+            validator.addError(getSeason().playGame());
+            Stage stage = new Stage();
+            stage.setX(ViewLoader.X + 601);
+            stage.setY(ViewLoader.Y);
+            stage.getIcons().add(new Image("/view/nba.png"));
+            ViewLoader.showStage(validator, "/view/error.fxml", "All Games Played!", stage);
+        } catch (IOException ex) {
+            Logger.getLogger(AssociationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     public void displayResult() {
-
+        try {
+            Stage stage = new Stage();
+            stage.setX(ViewLoader.X + 601);
+            stage.setY(ViewLoader.Y);
+            stage.getIcons().add(new Image("/view/nba.png"));
+            ViewLoader.showStage(getSeason(), "/view/RecordView.fxml", "Season Record", stage);
+        } catch (IOException ex) {
+            Logger.getLogger(AssociationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML

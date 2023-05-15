@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="NBAfx:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/NBAfx_jar</output-path>
+    <root id="archive" name="NBAfx.jar">
+      <element id="module-output" name="NBAfx" />
+    </root>
+  </artifact>
+</component>

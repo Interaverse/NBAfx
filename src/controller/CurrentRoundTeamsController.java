@@ -12,6 +12,7 @@ import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
 import javafx.stage.*;
 import javafx.scene.image.Image;
 import javafx.scene.control.*;
@@ -22,9 +23,10 @@ import model.Game;
 
 public class CurrentRoundTeamsController  extends Controller<Season>{
     @FXML private TableView<Game> scheduleTable;
-    @FXML private TableColumn teamOneColumn;
-    @FXML private TableColumn teamTwoColumn;
+    @FXML private TableColumn<Game,String> teamOneColumn;
+    @FXML private TableColumn<Game,String> teamTwoColumn;
     @FXML private TableColumn versusColumn;
+    @FXML private VBox mainVBox;
     public Season getSeason() { return this.model; }
 
     public String getRound() { return "Round: "+ (getSeason().round() + 1); }
@@ -32,9 +34,23 @@ public class CurrentRoundTeamsController  extends Controller<Season>{
     @FXML public void close(){ stage.close(); }
 
     @FXML public void initialize(){
-        scheduleTable.prefWidthProperty().bind(stage.widthProperty().divide(2));
+        scheduleTable.prefWidthProperty().bind(mainVBox.widthProperty().multiply(0.7));
+
+        teamOneColumn.prefWidthProperty().bind(scheduleTable.widthProperty().divide(3));
+        versusColumn.prefWidthProperty().bind(scheduleTable.widthProperty().divide(3));
+        teamTwoColumn.prefWidthProperty().bind(scheduleTable.widthProperty().divide(3));
+
+        teamOneColumn.setCellValueFactory(cellData -> cellData.getValue().team1());
+        teamTwoColumn.setCellValueFactory(cellData -> cellData.getValue().team2());
+        versusColumn.setCellValueFactory(cellData -> new SimpleStringProperty("VS"));
+
+        scheduleTable.setItems(getSeason().getCurrentSchedule());
     }
-  
+
+    public double getTableWidth() {
+        return mainVBox.getWidth();  // or replace mainVBox with the id of your VBox
+    }
+
 }
 
 

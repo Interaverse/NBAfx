@@ -61,7 +61,15 @@ public class SeasonController  extends Controller<Season>{
     public void playGame() {
         try {
             Validator validator = new Validator();
-            validator.addError(getSeason().playGame());
+            try {
+                if (getSeason().getCurrentSchedule().size() == 0){
+                    throw new Exception("No Games to play!\nPlease add games to this round.");
+                } else {
+                    validator.addError(getSeason().playGame());
+                }
+            } catch (Exception e) {
+                validator.addError(e.getMessage());
+            }
             Stage stage = new Stage();
             stage.setX(ViewLoader.X + 601);
             stage.setY(ViewLoader.Y);

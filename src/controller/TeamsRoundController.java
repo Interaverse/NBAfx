@@ -75,7 +75,7 @@ public class TeamsRoundController  extends Controller<Season>{
                 arrangeSeasonButton.setDisable(false);
                 transferButton.setDisable(true);
             } else {
-                System.out.println("The ListView is not empty.");
+
             }
         });
     }

@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/NBAfx_jar</output-path>
     <root id="archive" name="NBAfx.jar">
       <element id="module-output" name="NBAfx" />
+      <element id="dir-copy" path="/Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre/lib" />
     </root>
   </artifact>
 </component>
